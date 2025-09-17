@@ -16,7 +16,7 @@ Email Nvarchar(100) unique not null,
 );
 go
 
-Create table Puesto(
+Create table Puestos(
 Id int primary key identity(1,1),
 Nombre Nvarchar(50)  not null,
 );
@@ -29,7 +29,7 @@ Nombre_Empresa nvarchar(50) not null,
 Nombre_Contacto Nvarchar(50) not null,
 Telefono int not null,
 Direccion Nvarchar(50),
-Emaixl Nvarchar(100) unique not null,
+Email Nvarchar(100) unique not null,
 );
 go
 

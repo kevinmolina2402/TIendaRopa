@@ -1,6 +1,6 @@
 ﻿using lib_dominio.Entidades;
 
-namespace lib_repositorios.Interfaces
+namespace lib_repositorio.Interfaces
 {
     public interface IColoresAplicacion
     {

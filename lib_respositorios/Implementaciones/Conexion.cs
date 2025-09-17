@@ -1,8 +1,8 @@
 ﻿using lib_dominio.Entidades;
-using lib_repositorios.Interfaces;
+using lib_repositorio.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace lib_repositorios.Implementaciones
+namespace lib_repositorio.Implementaciones
 {
     public class Conexion : DbContext, IConexion
     {

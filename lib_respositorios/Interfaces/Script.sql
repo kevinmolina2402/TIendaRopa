@@ -1,4 +1,4 @@
-Create database TiendaRopa
+create database TiendaRopa
 go
 Use TiendaRopa
 go
@@ -10,7 +10,7 @@ Id int Primary key IDENTITY(1,1),
 Cedula nvarchar(50)  not null,
 Nombre nvarchar(50) not null,
 Apellido Nvarchar(50) not null,
-Telefono int not null,
+Telefono nvarchar(50) not null,
 Direccion Nvarchar(50),
 Email Nvarchar(100) unique not null,
 );
@@ -27,7 +27,7 @@ Id int Primary key IDENTITY(1,1),
 RUT nvarchar(50)  not null,
 Nombre_Empresa nvarchar(50) not null,
 Nombre_Contacto Nvarchar(50) not null,
-Telefono int not null,
+Telefono nvarchar(50) not null,
 Direccion Nvarchar(50),
 Email Nvarchar(100) unique not null,
 );
@@ -55,7 +55,7 @@ go
 
 Create table Tallas(
 Id int primary key identity(1,1),
-Descripcion Nvarchar not null
+Descripcion Nvarchar(10) not null
 );
 go
 
@@ -76,13 +76,13 @@ Id int Primary key IDENTITY(1,1),
 Cedula nvarchar(50) not null,
 Nombre nvarchar(50) not null,
 Apellido Nvarchar(50) not null,
-Telefono int not null,
+Telefono nvarchar(50) not null,
 Direccion Nvarchar(50),
 Email Nvarchar(100) unique not null,
 Id_Puesto int not null,
 Fecha_Contratacion DATETIME not null,
 
-foreign key (Id_Puesto) references Puesto(Id),
+foreign key (Id_Puesto) references Puestos(Id),
 );
 go
 Create table Productos(
@@ -204,7 +204,7 @@ values
 ('40','Laura', 'Torres', '3031122334', 'Calle 50 #22-15', 'laura.torres@mail.com'),
 ('50','Pedro', 'López', '3049988776', 'Carrera 12 #5-40', 'pedro.lopez@mail.com');
 go
-insert into Puesto(Nombre)
+insert into Puestos(Nombre)
 values
 ('Gerente'),
 ('Asesor'),
@@ -223,11 +223,11 @@ go
 
 insert into Marcas(Nombre, Pais_Origen)
 values
-('Nike'),
-('Puma'),
-('Diesel'),
-('Zara'),
-('Adidas');
+('Nike', 'USA'),
+('Puma', 'USA'),
+('Diesel', 'Italia'),
+('Zara', 'España'),
+('Adidas', 'USA');
 go
 insert into Categorias(Nombre)
 values
@@ -354,4 +354,3 @@ values
 (3,3,20,9,1, 'Inconformidad con la prenda', GETDATE()),
 (4,4,15,10,1, 'Inconformidad con la prenda', GETDATE()),
 (5,5,21,4,1, 'Inconformidad con la prenda', GETDATE());
-

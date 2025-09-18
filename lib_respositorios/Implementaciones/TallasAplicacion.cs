@@ -7,7 +7,7 @@ namespace lib_repositorio.Implementaciones
     public class TallasAplicacion : ITallasAplicacion
     {
         private IConexion? IConexion = null;
-        
+
         public TallasAplicacion(IConexion iConexion)
         {
             this.IConexion = iConexion;

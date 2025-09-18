@@ -1,0 +1,16 @@
+C:\Users\Josue\Desktop\TIendaRopa\lib_respositorios\bin\Debug\net8.0\lib_respositorio.deps.json
+C:\Users\Josue\Desktop\TIendaRopa\lib_respositorios\bin\Debug\net8.0\lib_respositorio.dll
+C:\Users\Josue\Desktop\TIendaRopa\lib_respositorios\bin\Debug\net8.0\lib_respositorio.pdb
+C:\Users\Josue\Desktop\TIendaRopa\lib_respositorios\bin\Debug\net8.0\lib_dominio.dll
+C:\Users\Josue\Desktop\TIendaRopa\lib_respositorios\bin\Debug\net8.0\lib_dominio.pdb
+C:\Users\Josue\Desktop\TIendaRopa\lib_respositorios\obj\Debug\net8.0\lib_respositorio.csproj.AssemblyReference.cache
+C:\Users\Josue\Desktop\TIendaRopa\lib_respositorios\obj\Debug\net8.0\lib_respositorio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Josue\Desktop\TIendaRopa\lib_respositorios\obj\Debug\net8.0\lib_respositorio.AssemblyInfoInputs.cache
+C:\Users\Josue\Desktop\TIendaRopa\lib_respositorios\obj\Debug\net8.0\lib_respositorio.AssemblyInfo.cs
+C:\Users\Josue\Desktop\TIendaRopa\lib_respositorios\obj\Debug\net8.0\lib_respositorio.csproj.CoreCompileInputs.cache
+C:\Users\Josue\Desktop\TIendaRopa\lib_respositorios\obj\Debug\net8.0\lib_respositorio.sourcelink.json
+C:\Users\Josue\Desktop\TIendaRopa\lib_respositorios\obj\Debug\net8.0\lib_resp.54FFFBEB.Up2Date
+C:\Users\Josue\Desktop\TIendaRopa\lib_respositorios\obj\Debug\net8.0\lib_respositorio.dll
+C:\Users\Josue\Desktop\TIendaRopa\lib_respositorios\obj\Debug\net8.0\refint\lib_respositorio.dll
+C:\Users\Josue\Desktop\TIendaRopa\lib_respositorios\obj\Debug\net8.0\lib_respositorio.pdb
+C:\Users\Josue\Desktop\TIendaRopa\lib_respositorios\obj\Debug\net8.0\ref\lib_respositorio.dll

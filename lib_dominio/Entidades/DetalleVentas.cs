@@ -9,6 +9,8 @@ namespace lib_dominio.Entidades
         public int Producto { get; set; }
         public int Talla { get; set; }
         public int Color { get; set; }
+        public int Promocion { get; set; }
+
 
 
         public int Cantidad { get; set; }
@@ -19,6 +21,7 @@ namespace lib_dominio.Entidades
         [ForeignKey("Producto")] public Productos? _Producto { get; set; }
         [ForeignKey("Talla")] public Tallas? _Talla { get; set; }
         [ForeignKey("Color")] public Colores? _Color { get; set; }
+        [ForeignKey("Promocion")] public Promociones? _Promocion { get; set; }
 
 
     }

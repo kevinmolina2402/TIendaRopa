@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("lib_respositorio")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06719a334d0073d7f07c314d2d27da4275141e83")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dffad02b737da287cbe4123d124f5f95bc660ab8")]
 [assembly: System.Reflection.AssemblyProductAttribute("lib_respositorio")]
 [assembly: System.Reflection.AssemblyTitleAttribute("lib_respositorio")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

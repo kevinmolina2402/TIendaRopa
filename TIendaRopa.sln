@@ -8,6 +8,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Servicios", "2. Servicios", "{369CB01D-A1A7-72D2-AABC-3F0945D148A2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Nucleo", "3. Nucleo", "{7DC331D0-3EC4-40A6-69FB-1CBEB2E0D1EA}"
+	ProjectSection(SolutionItems) = preProject
+		lib_respositorios\Interfaces\IProductosAplicacion.cs = lib_respositorios\Interfaces\IProductosAplicacion.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Pruebas unitarias", "4. Pruebas unitarias", "{643747C7-0307-8931-84D8-A7D1915E22E5}"
 EndProject

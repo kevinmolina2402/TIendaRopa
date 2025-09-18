@@ -1,65 +1,71 @@
-//using lib_dominio.Entidades;
-//using lib_repositorio.Interfaces;
-//using lib_repositorio.Implementaciones;
-//using Microsoft.EntityFrameworkCore;
-//using ut_presentacion.Nucleo;
+using lib_dominio.Entidades;
+using lib_repositorio.Interfaces;
+using lib_repositorio.Implementaciones;
+using Microsoft.EntityFrameworkCore;
+using ut_presentacion.Nucleo;
 
-//namespace ut_presentacion.Repositorios
-//{
-//    [TestClass]
-//    public class DetalleVentasPrueba
-//    {
-//        private readonly IConexion? iConexion;
-//        private List<DetalleVentas>? lista;
-//        private DetalleVentas? entidad;
+namespace ut_presentacion.Repositorios
+{
+    [TestClass]
+    public class DetalleVentasPrueba
+    {
+        private readonly IConexion? iConexion;
+        private List<DetalleVentas>? lista;
+        private DetalleVentas? entidad;
 
-//        public DetalleVentasPrueba()
-//        {
-//            iConexion = new Conexion();
-//            iConexion.StringConexion = Configuracion.ObtenerValor("StringConexion");
-//        }
+        public DetalleVentasPrueba()
+        {
+            iConexion = new Conexion();
+            iConexion.StringConexion = Configuracion.ObtenerValor("StringConexion");
+        }
 
-//        [TestMethod]
-//        public void Ejecutar()
-//        {
-//            Assert.AreEqual(true, Guardar());
-//            Assert.AreEqual(true, Modificar());
-//            Assert.AreEqual(true, Listar());
-//            Assert.AreEqual(true, Borrar());
-//        }
+        [TestMethod]
+        public void Ejecutar()
+        {
+            Assert.AreEqual(true, Guardar());
+            Assert.AreEqual(true, Modificar());
+            Assert.AreEqual(true, Listar());
+            Assert.AreEqual(true, Borrar());
+        }
 
-//        public bool Listar()
-//        {
-//            this.lista = this.iConexion!.DetalleVentas!.ToList();
-//            return lista.Count > 0;
-//        }
+        public bool Listar()
+        {
+            this.lista = this.iConexion!.DetalleVentas!
+                .Include(x => x._Venta)
+                .Include(x => x._Producto) 
+                .Include(x => x._Color)
+                .Include(x => x._Talla)
+                .Include(x => x._Promocion)
+                .ToList();
+            return lista.Count > 0;
+        }
 
-//        public bool Guardar()
-//        {
-//            this.entidad = EntidadesNucleo.DetalleVentas()!;
+        public bool Guardar()
+        {
+            this.entidad = EntidadesNucleo.DetalleVentas()!;
 
-//            this.iConexion!.DetalleVentas!.Add(this.entidad);
-//            this.iConexion!.SaveChanges();
+            this.iConexion!.DetalleVentas!.Add(this.entidad);
+            this.iConexion!.SaveChanges();
 
-//            return true;
-//        }
+            return true;
+        }
 
-//        public bool Modificar()
-//        {
-//            this.entidad!.Cantidad = 2;
+        public bool Modificar()
+        {
+            this.entidad!.Cantidad = 2;
 
-//            var entry = this.iConexion!.Entry<DetalleVentas>(this.entidad);
-//            entry.State = EntityState.Modified;
-//            this.iConexion!.SaveChanges();
+            var entry = this.iConexion!.Entry<DetalleVentas>(this.entidad);
+            entry.State = EntityState.Modified;
+            this.iConexion!.SaveChanges();
 
-//            return true;
-//        }
+            return true;
+        }
 
-//        public bool Borrar()
-//        {
-//            this.iConexion!.DetalleVentas!.Remove(this.entidad!);
-//            this.iConexion!.SaveChanges();
-//            return true;
-//        }
-//    }
-//}
+        public bool Borrar()
+        {
+            this.iConexion!.DetalleVentas!.Remove(this.entidad!);
+            this.iConexion!.SaveChanges();
+            return true;
+        }
+    }
+}

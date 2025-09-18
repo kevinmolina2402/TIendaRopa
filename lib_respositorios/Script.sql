@@ -79,121 +79,121 @@ Apellido Nvarchar(50) not null,
 Telefono nvarchar(50) not null,
 Direccion Nvarchar(50),
 Email Nvarchar(100) unique not null,
-Id_Puesto int not null,
+Puesto int not null,
 Fecha_Contratacion DATETIME not null,
 
-foreign key (Id_Puesto) references Puestos(Id),
+foreign key (Puesto) references Puestos(Id),
 );
 go
 Create table Productos(
 Id int primary key identity(1,1),
 
-Id_Marca int not null,
-Id_Categoria int not null,
+Marca int not null,
+Categoria int not null,
 
 Nombre Nvarchar(100) not null,
 Descripcion Nvarchar(300) not null,
 Precio_Compra Decimal (10,2) not null,
 Precio_Venta Decimal (10,2) not null,
 
-foreign key (Id_Marca) references Marcas(Id),
-foreign key (Id_Categoria) references Categorias(Id),
+foreign key (Marca) references Marcas(Id),
+foreign key (Categoria) references Categorias(Id),
 
 );
 go
 
 Create table Inventario(
 Id int primary key identity(1,1),
-Id_Producto int not null,
-Id_Talla int not null,
-Id_Color int not null,
+Producto int not null,
+Talla int not null,
+Color int not null,
 Cantidad int not null,
 
-foreign key (Id_Producto) references Productos(Id),
-foreign key (Id_Talla) references Tallas(Id),
-foreign key (Id_Color) references Colores(Id),
+foreign key (Producto) references Productos(Id),
+foreign key (Talla) references Tallas(Id),
+foreign key (Color) references Colores(Id),
 
 );
 go
 
 Create table Compras(
 Id int primary key identity(1,1),
-Id_Proveedor int not null,
-Id_Empleado int not null,
+Proveedor int not null,
+Empleado int not null,
 Fecha_Compra DATETIME not null,
 Total Decimal(10,2) not null,
 Impuestos Decimal(10,2) not null,
 
-foreign key (Id_Proveedor) references Proveedores(Id),
-foreign key (Id_Empleado) references Empleados(Id),
+foreign key (Proveedor) references Proveedores(Id),
+foreign key (Empleado) references Empleados(Id),
 
 );
 go
 
 Create table DetalleCompras(
 Id int primary key identity(1,1),
-Id_Compra int not null,
-Id_Producto int not null,
-Id_Talla int not null,
-Id_Color int not null,
+Compra int not null,
+Producto int not null,
+Talla int not null,
+Color int not null,
 Cantidad Int not null,
 Precio_Unitario Decimal(10,2) not null,
 
-foreign key (Id_Compra) references Compras(Id),
-foreign key (Id_Producto) references Productos(Id),
-foreign key (Id_Talla) references Tallas(Id),
-foreign key (Id_Color) references Colores(Id),
+foreign key (Compra) references Compras(Id),
+foreign key (Producto) references Productos(Id),
+foreign key (Talla) references Tallas(Id),
+foreign key (Color) references Colores(Id),
 
 );
 go
 
 Create table Ventas(
 Id int primary key identity(1,1),
-Id_Cliente int not null,
-Id_Empleado int not null,
+Cliente int not null,
+Empleado int not null,
 Fecha_Venta DATETIME not null,
 Total Decimal(10,2) not null,
 Impuestos Decimal(10,2) not null,
 
-foreign key (Id_Cliente) references Clientes(Id),
-foreign key (Id_Empleado) references Empleados(Id),
+foreign key (Cliente) references Clientes(Id),
+foreign key (Empleado) references Empleados(Id),
 
 );
 go
 
 Create table DetalleVentas(
 Id int primary key identity(1,1),
-Id_Venta int not null,
-Id_Producto int not null,
-Id_Talla int not null,
-Id_Color int not null,
-Id_Promocion int null,
+Venta int not null,
+Producto int not null,
+Talla int not null,
+Color int not null,
+Promocion int null,
 Cantidad Int not null,
 Precio_Unitario Decimal(10,2) not null,
 
-foreign key (Id_Venta) references Ventas(Id),
-foreign key (Id_Producto) references Productos(Id),
-foreign key (Id_Talla) references Tallas(Id),
-foreign key (Id_Color) references Colores(Id),
-foreign key (Id_Promocion) references Promociones(Id),
+foreign key (Venta) references Ventas(Id),
+foreign key (Producto) references Productos(Id),
+foreign key (Talla) references Tallas(Id),
+foreign key (Color) references Colores(Id),
+foreign key (Promocion) references Promociones(Id),
 
 );
 go
 
 Create table Devoluciones(
 Id int primary key identity(1,1),
-Id_Venta int not null,
-Id_Producto int not null,
-Id_Talla int not null,
-Id_Color int not null,
+Venta int not null,
+Producto int not null,
+Talla int not null,
+Color int not null,
 Cantidad Int not null,
 Motivo Nvarchar(300) not null,
 Fecha_Devolucion DATETIME not null,
 
-foreign key (Id_Venta) references Ventas(Id),
-foreign key (Id_Producto) references Productos(Id),
-foreign key (Id_Talla) references Tallas(Id),
-foreign key (Id_Color) references Colores(Id),
+foreign key (Venta) references Ventas(Id),
+foreign key (Producto) references Productos(Id),
+foreign key (Talla) references Tallas(Id),
+foreign key (Color) references Colores(Id),
 );
 go
 Insert into Clientes(Cedula, Nombre, Apellido, Telefono, Direccion, Email)
@@ -285,7 +285,7 @@ values
 ('PROMOENVIO', 'Envío gratis por compras mayores a $80,000', 0.00, 15000.00, '2025-09-20', '2025-10-10');
 go
 
-insert into Empleados(Cedula, Nombre, Apellido, Telefono, Direccion, Email, Id_Puesto, Fecha_Contratacion)
+insert into Empleados(Cedula, Nombre, Apellido, Telefono, Direccion, Email, Puesto, Fecha_Contratacion)
 VALUES
 
 ('60', 'Andrés', 'Ramírez', '3104567890', 'Calle 12 #45-30 Medellin', 'andres.ramirez@mail.com', 1, '2023-05-15'),
@@ -295,7 +295,7 @@ VALUES
 ('100', 'Esteban', 'Martínez', '3148765432', 'Carrera 50 #22-35 Medellín', 'esteban.martinez@mail.com', 5, '2020-03-20');
 go
 
-Insert into Productos(Id_Marca, Id_Categoria, Nombre, Descripcion, Precio_Compra, Precio_Venta)
+Insert into Productos(Marca, Categoria, Nombre, Descripcion, Precio_Compra, Precio_Venta)
 values
 (1,1, 'Camiseta Nike Ultra', 'Camiseta oversize Color rojo',30000, 80000),
 (2,2, 'Pantalon Puma','Pantalon baggie color negro', 70000, 160000),
@@ -304,7 +304,7 @@ values
 (5,4,'Buso Adidas premium', ' Buso Azul Estampado', 60000, 120000);
 go
 
-insert into Inventario(Id_Producto, Id_Talla, Id_Color, Cantidad)
+insert into Inventario(Producto, Talla, Color, Cantidad)
 values
 (1,21, 3, 200),
 (2, 20, 2, 20),
@@ -313,7 +313,7 @@ values
 (5, 21, 4, 60);
 go
 
-Insert into Compras(Id_Proveedor, Id_Empleado, Fecha_Compra, Total, Impuestos)
+Insert into Compras(Proveedor, Empleado, Fecha_Compra, Total, Impuestos)
 values
 (1,1,GETDATE(), 6060000, 60000 ),
 (2,2,GETDATE(), 1414000, 14000 ),
@@ -322,7 +322,7 @@ values
 (5,5,GETDATE(), 3636000, 36000);
 go
 
-insert into DetalleCompras(Id_Compra, Id_Producto, Id_Talla, Id_Color, Cantidad, Precio_Unitario)
+insert into DetalleCompras(Compra, Producto, Talla, Color, Cantidad, Precio_Unitario)
 values 
 (1,1,21,3,200, 30000),
 (2,2,20,2,20,70000),
@@ -330,7 +330,7 @@ values
 (4,4,15,10,15,30000),
 (5,5,21,4,60,60000);
 
-insert into Ventas(Id_Cliente,Id_Empleado,Fecha_Venta,Total,Impuestos)
+insert into Ventas(Cliente,Empleado,Fecha_Venta,Total,Impuestos)
 values
 (1,1,GETDATE(),80000, 15200  ),
 (2,2, GETDATE(),320000,60800 ),
@@ -338,7 +338,7 @@ values
 (4,4, GETDATE(), 80000, 15200),
 (5,5, GETDATE(), 60000, 11400);
 go
-insert into DetalleVentas(Id_Venta,Id_Producto, Id_Talla, Id_Color, Id_Promocion, Cantidad, Precio_Unitario)
+insert into DetalleVentas(Venta,Producto, Talla, Color, Promocion, Cantidad, Precio_Unitario)
 values
 (1,1,21,3,null, 1,80000 ),
 (2,2,20,2,null,2, 160000),
@@ -347,7 +347,7 @@ values
 (5,5,21,4,null,1,60000);
 go
 
-insert into Devoluciones( Id_Venta, Id_Producto, Id_Talla, Id_Color, Cantidad, Motivo, Fecha_Devolucion )
+insert into Devoluciones( Venta, Producto, Talla, Color, Cantidad, Motivo, Fecha_Devolucion )
 values
 (1,1,21,3,1, 'Inconformidad con la prenda', GETDATE()),
 (2,2,20,2,2, 'Inconformidad con la prenda', GETDATE()),

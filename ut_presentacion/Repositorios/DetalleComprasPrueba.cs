@@ -30,7 +30,12 @@ namespace ut_presentacion.Repositorios
 
         public bool Listar()
         {
-            this.lista = this.iConexion!.DetalleCompras!.ToList();
+            this.lista = this.iConexion!.DetalleCompras!
+                .Include(x => x._Compra)
+                .Include(x => x._Producto)
+                .Include(x => x._Color)
+                .Include(x => x._Talla)
+                .ToList();
             return lista.Count > 0;
         }
 

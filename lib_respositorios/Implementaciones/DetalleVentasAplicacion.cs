@@ -25,6 +25,11 @@ namespace lib_repositorio.Implementaciones
             if (entidad!.Id == 0)
                 throw new Exception("lbNoSeGuardo");
             // Operaciones
+            entidad._Venta = null;
+            entidad._Producto = null;
+            entidad._Talla = null;
+            entidad._Color = null;
+            entidad._Promocion = null;
             this.IConexion!.DetalleVentas!.Remove(entidad);
             this.IConexion.SaveChanges();
             return entidad;
@@ -37,6 +42,11 @@ namespace lib_repositorio.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("lbYaSeGuardo");
             // Operaciones
+            entidad._Venta = null;
+            entidad._Producto = null;
+            entidad._Talla = null;
+            entidad._Color = null;
+            entidad._Promocion = null;
             this.IConexion!.DetalleVentas!.Add(entidad);
             this.IConexion.SaveChanges();
             return entidad;
@@ -54,6 +64,11 @@ namespace lib_repositorio.Implementaciones
             if (entidad!.Id == 0)
                 throw new Exception("lbNoSeGuardo");
             // Operaciones
+            entidad._Venta = null;
+            entidad._Producto = null;
+            entidad._Talla = null;
+            entidad._Color = null;
+            entidad._Promocion = null;
             var entry = this.IConexion!.Entry<DetalleVentas>(entidad);
             entry.State = EntityState.Modified;
             this.IConexion.SaveChanges();
